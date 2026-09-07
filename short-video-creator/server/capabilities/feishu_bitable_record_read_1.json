@@ -1,0 +1,17 @@
+{
+  "id": "feishu_bitable_record_read_1",
+  "pluginKey": "@official-plugins/feishu-bitable",
+  "pluginVersion": "1.0.22",
+  "name": "飞书多维表格记录读取实例",
+  "description": "以当前用户身份读取指定多维表格记录，获取生成视频附件字段的可播放URL",
+  "icon": "",
+  "paramsSchema": {},
+  "formValue": {
+    "appToken": "Nw0LbziSeaPZ4LsvxQ9cxiVQnnd",
+    "tableID": "tbl8004hqmNael1v",
+    "fields": []
+  },
+  "createdAt": 1788589261400,
+  "updatedAt": 1788589261400,
+  "createdBy": 7677496906938862548
+}

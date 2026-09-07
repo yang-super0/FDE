@@ -1,0 +1,23 @@
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import Layout from './components/Layout';
+import MaterialsPage from './pages/MaterialsPage/MaterialsPage';
+import MaterialDetailPage from './pages/MaterialDetailPage/MaterialDetailPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import NotFound from './pages/NotFound/NotFound';
+
+const RoutesComponent = () => {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<MaterialsPage />} />
+        <Route path="materials/:id" element={<MaterialDetailPage />} />
+        <Route path="dashboard" element={<DashboardPage />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
+
+export default RoutesComponent;

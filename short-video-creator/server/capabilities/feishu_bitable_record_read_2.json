@@ -1,0 +1,50 @@
+{
+  "id": "feishu_bitable_record_read_2",
+  "pluginKey": "@official-plugins/feishu-bitable",
+  "pluginVersion": "1.0.22",
+  "name": "飞书多维表格记录读取（成片视频附件）",
+  "description": "用于在应用详情页读取指定记录的成片视频附件字段，包含生成视频1-生成视频4四个附件字段",
+  "icon": "",
+  "paramsSchema": {},
+  "formValue": {
+    "appToken": "Nw0LbziSeaPZ4LsvxQ9cxiVQnnd",
+    "tableID": "tbl8004hqmNael1v",
+    "fields": [
+      {
+        "bizType": "Attachment",
+        "id": "fld_generated_video_1",
+        "name": "生成视频1",
+        "type": 17,
+        "readable": true,
+        "writeable": false
+      },
+      {
+        "readable": true,
+        "writeable": false,
+        "bizType": "Attachment",
+        "id": "fld_generated_video_2",
+        "name": "生成视频2",
+        "type": 17
+      },
+      {
+        "writeable": false,
+        "bizType": "Attachment",
+        "id": "fld_generated_video_3",
+        "name": "生成视频3",
+        "type": 17,
+        "readable": true
+      },
+      {
+        "writeable": false,
+        "bizType": "Attachment",
+        "id": "fld_generated_video_4",
+        "name": "生成视频4",
+        "type": 17,
+        "readable": true
+      }
+    ]
+  },
+  "createdAt": 1788589553435,
+  "updatedAt": 1788589553435,
+  "createdBy": 7677496906938862548
+}
