@@ -1,0 +1,33 @@
+import { logger } from '@lark-apaas/client-toolkit/logger';
+import { axiosForBackend } from '@lark-apaas/client-toolkit/utils/getAxiosForBackend';
+
+export { logger, axiosForBackend };
+
+export * as dashboardApi from './dashboard';
+export * as customerApi from './customers';
+export * as advertisingApi from './advertising';
+export * as videoApi from './video';
+export * as contractApi from './contracts';
+export * as financeApi from './finance';
+export * as hrApi from './hr';
+export * as adminApi from './admin';
+export * as taskApi from './tasks';
+export * as systemApi from './system';
+export * as supportApi from './support';
+export * as operationLogApi from './operation-logs';
+export * as customerPoolApi from './customer-pool';
+export * as adBusinessApi from './ad-business';
+export * as financeCoreApi from './finance-core';
+export * as videoCoreApi from './video-core';
+export * as contractEnhanceApi from './contract-enhance';
+export * as workbenchEnhanceApi from './workbench-enhance';
+export * as financeEnhanceApi from './finance-enhance';
+export * as hrEnhanceApi from './hr-enhance';
+export * as adminEnhanceApi from './admin-enhance';
+export * as taskEnhanceApi from './task-enhance';
+export * as systemEnhanceApi from './system-enhance';
+export * as supportEnhanceApi from './support-enhance';
+export * as reportCenterApi from './report-center';
+export * as fieldPermissionApi from './field-permission';
+export * as messageNotificationApi from './message-notification';
+export * as feishuSyncApi from './feishu-sync';

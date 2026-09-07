@@ -1,0 +1,9 @@
+export * as videoOrdersApi from './orders';
+export * as videoProjectsApi from './projects';
+export * as videoActorsApi from './actors';
+export * as videoVendorsApi from './vendors';
+export * as videoOutsourcingApi from './outsourcing';
+export * as videoCommissionsApi from './commissions';
+export * as videoShootingApi from './shooting';
+export * as videoVenuesApi from './venues';
+export * as videoSamplesApi from './samples';
