@@ -48,10 +48,10 @@
 - 注意：空值可能是 `null` 或 `[]`；选项文本同样需与线上一致
 
 ### 人员（User）⚠️ 高风险
-- 写入：`number[]`（user_id 数字数组）
-- 读取：`[{id: number, name: string, en_name: string}]`
-- 要求：飞书应用必须有 `contact:user.id:readonly` 权限
-- 无权限时：含人员字段的写操作自动降级走插件通道
+- 写入：`[{"id": "<ID字符串>"}]`（对象数组；记录写接口仅支持传入 `id` 参数，ID 类型由接口 `user_id_type` 参数决定，支持 open_id/union_id/user_id，均为字符串，默认 open_id）
+- 读取：`[{id: string, name: string, en_name: string}]`
+- 要求：飞书应用必须有 `contact:user.id:readonly` 权限——无此权限时无法通过通讯录接口把业务侧的姓名/手机号/邮箱换成可写入的用户 ID
+- 无权限时：在表单层禁用人员字段并提示「需管理员开通通讯录权限后启用」，或改用文本字段存人名（设计期降级建议见阶段2.3）；插件通道在发布环境写操作必失败（坑1），禁止作为降级路径
 
 ### 关联（Link）⚠️ 高风险
 - 写入：`[{id: "rec_xxx"}]`
@@ -66,10 +66,10 @@
 
 ### 附件（Attachment）⚠️ 高风险
 - 写入：`[{file_token: "xxx"}]`
-- 读取：`[{file_token: string, name: string, url: string, size: number}]`
-- 流程：先上传文件获取 file_token，再写入记录
-- 注意：上传接口需要 drive 权限
-- **下载/预览必须使用读取到的真实 url**，不要用占位链接或只做按钮样式（坑16）
+- 读取：`[{file_token: string, name: string, type: string, size: number, url: string, tmp_url: string}]`——`url` 需 access token 鉴权、不能直接给前端当下载地址；`tmp_url` 是获取临时链接的接口地址，同样不可直用
+- 流程：先上传文件获取 file_token（上传用素材上传接口，权限为"开启任一"，见阶段3.2），再写入记录
+- **下载/预览正确姿势**：后端以 file_token 现调 `GET /open-apis/drive/v1/medias/batch_get_tmp_download_url`（高级权限多维表格需带 extra 参数）换取 `tmp_download_url` 给前端；**临时链接 24 小时失效、一次最多 5 个 file_token**——每次展示现取，禁止缓存、禁止落库、禁止当永久地址
+- 不要用占位链接或只做按钮样式（坑16）
 
 ### 公式（Formula）
 - 写入：只读，不可写入
